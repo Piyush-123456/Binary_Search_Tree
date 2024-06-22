@@ -24,3 +24,24 @@ class Solution{
         return ans;
     }
 };
+
+
+Method -2 
+  class Solution{
+  public:
+    Node * inOrderSuccessor(Node *root, Node *x)
+    {
+        Node* succ = 0;
+        Node* cur  = root;
+        while(cur){
+            if(cur->data > x->data){
+                succ = cur;
+                cur = cur->left;
+            }
+            else{
+                cur = cur->right;
+            }
+        }
+        return succ;
+    }
+};
