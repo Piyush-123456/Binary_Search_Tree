@@ -1,0 +1,18 @@
+void buildBST(vector<int>&A, int mini, int maxi, int &i){
+    if(i>=A.size()){
+        return;
+    }
+    if(A[i]>mini && A[i]<maxi){
+        int root = A[i++];
+        buildBST(A, mini, root, i);
+        buildBST(A, root, maxi, i);
+    }
+}
+
+int Solution::solve(vector<int> &A) {
+    int mini = INT_MIN;
+    int maxi = INT_MAX;
+    int  i =0;
+    buildBST(A, mini, maxi, i);
+    return i==A.size();
+}
